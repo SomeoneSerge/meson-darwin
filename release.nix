@@ -7,7 +7,7 @@ stdenv.mkDerivation {
   version = "0.0.1";
   src = ./.;
   buildPhase = ''
-    c++ app.cpp -lstdc++ -o ./hello
+    c++ app.cpp -lstdc++ -o ./hello -std=c++17
   '';
   installPhase = ''
     mkdir -p $out/bin
