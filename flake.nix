@@ -8,7 +8,7 @@
     let
       overlay = (final: prev: {
         hello = final.callPackage ./release.nix {
-          inherit (final.llvmPackages_12) stdenv;
+          inherit (final.llvmPackages_12) stdenv libstdcxxClang;
         };
       });
       pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
