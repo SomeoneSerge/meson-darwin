@@ -1,15 +1,16 @@
 { lib
 , stdenv
-, libstdcxxClang
+, libcxx
+, libcxxabi
 }:
 
 stdenv.mkDerivation {
   pname = "hello";
   version = "0.0.1";
   src = ./.;
-  buildInputs = [ libstdcxxClang ];
+  buildInputs = [ libcxx libcxxabi ];
   buildPhase = ''
-    c++ app.cpp -o ./hello -Wl,-lstdc++ -stdlib=libstdc++ -std=c++17
+    c++ app.cpp -o ./hello -Wl,-lc++ -lc++ -stdlib=libc++ -std=c++14
   '';
   installPhase = ''
     mkdir -p $out/bin
