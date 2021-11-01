@@ -6,11 +6,12 @@
 
   outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
     let
-      overlay = (final: prev: {
-        hello = final.callPackage ./release.nix {
-          inherit (final.llvmPackages_12) stdenv libcxx libcxxabi;
-        };
-      });
+      overlay = (final: prev:
+        let callPackage = final.lib.callPackageWith (final // final.llvmPackages_12);
+        in
+        {
+          hello = callPackage ./release.nix { };
+        });
       pkgs = import nixpkgs { inherit system; overlays = [ overlay ]; };
     in
     {
