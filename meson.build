@@ -4,5 +4,5 @@ project('nix-meson-glfw', 'cpp',
 
 executable('hello', 'app.cpp',
   dependencies: [ ],
-  link_args: [ '-lc++' ],
+  link_args: [ '-lstdc++' ],
   install: true)
