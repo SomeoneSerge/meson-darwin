@@ -9,7 +9,7 @@ stdenv.mkDerivation {
   src = ./.;
   buildInputs = [ libstdcxxClang ];
   buildPhase = ''
-    c++ app.cpp -o ./hello -Wl,-lstdc++ -lstdc++ -stdlib=libstdc++ -std=c++14
+    c++ app.cpp -o ./hello -Wl,-lstdc++ -stdlib=libstdc++ -std=c++14
   '';
   installPhase = ''
     mkdir -p $out/bin
