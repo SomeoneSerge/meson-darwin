@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   src = ./.;
   buildInputs = [ ];
   buildPhase = ''
-    c++ app.cpp -o ./hello -std=c++17
+    c++ app.cpp -o ./hello -std=c++17 ${lib.optionalString stdenv.isDarwin "-mmacosx-version-min=10.15"}
   '';
   installPhase = ''
     mkdir -p $out/bin
