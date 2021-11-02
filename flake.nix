@@ -7,7 +7,7 @@
   outputs = { self, nixpkgs, flake-utils }: flake-utils.lib.eachDefaultSystem (system:
     let
       overlay = (final: prev:
-        let callPackage = final.lib.callPackageWith (final // final.llvmPackages_12);
+        let callPackage = final.lib.callPackageWith (final);
         in
         {
           hello = callPackage ./release.nix { };
