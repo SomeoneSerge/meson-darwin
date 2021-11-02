@@ -8,7 +8,7 @@ stdenv.mkDerivation {
   src = ./.;
   buildInputs = [ ];
   buildPhase = ''
-    c++ app.cpp -o ./hello -std=c++14
+    c++ app.cpp -o ./hello -std=c++17 -lstdc++fs
   '';
   installPhase = ''
     mkdir -p $out/bin
